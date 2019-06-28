@@ -6,9 +6,15 @@
 </head>
 <body>
 
-  <nav>
+  <nav class="navbar navbar-default">
     <a href="/">Home</a>
     <a href="/plants/new" class="btn btn-primary navbar-btn">New Plant</a>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/logout">Logout</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/sign-up">Sign Up</a></li>
+    </ul>
   </nav>
     <div class="container">
       {{{body}}}
