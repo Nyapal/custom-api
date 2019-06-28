@@ -1,9 +1,15 @@
 const Plant = require('../models/plant')
 
 module.exports = app => {
-  // home
+  // index
   app.get('/', function (req, res) {
-    res.render('home')
+    Plant.find({})
+      .then(plants => {
+        res.render('plants-index', {plants})
+      })
+      .catch(err => {
+        console.log(err.message)
+      })
   })
   
   // new plant 
