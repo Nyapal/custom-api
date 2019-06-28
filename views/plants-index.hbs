@@ -3,7 +3,7 @@
     <ul>
       {{#each plants}}
         <li class="list-group-item">
-          <div class="lead">{{this.title}}</div>
+          <div class="lead"><a href="/plants/{{this._id}}">{{this.title}}</a></div>
           <p>{{this.summary}}</p>
         </li>
       {{/each}}

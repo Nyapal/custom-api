@@ -25,4 +25,19 @@ module.exports = app => {
       return res.redirect('/')
     })
   });
+
+  // by id 
+  app.get('/plants/:id', function (req, res) {
+    Plant.findById(req.params.id)
+      .then(plant => {
+        res.render('plants-show', {plant})
+      })
+      .catch(err => {
+        console.log(err.message)
+      })
+  })
+
+
+
+
 }
