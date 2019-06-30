@@ -39,8 +39,19 @@ module.exports = app => {
 
   // EDIT
   app.get('/plants/:id/edit', (req, res) => {
-    Plant.findById(req.params.id, function(err, review) {
+    Plant.findById(req.params.id, function(err, plant) {
       res.render('plants-edit', {plant: plant});
     })
+  })
+
+  // UPDATE
+  app.put('/plants/:id', (req, res) => {
+    Plant.findByIdAndUpdate(req.params.id, req.body)
+      .then(plant => {
+        res.redirect(`/plants/${plant._id}`)
+      })
+      .catch(err => {
+        console.log(err.message)
+      })
   })
 }

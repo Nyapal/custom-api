@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const expressValidator = require('express-validator')
 const cookieParser = require('cookie-parser')
 const jwt = require('jsonwebtoken')
+const methodOverride = require('method-override')
 const app = express()
 const port = 3000
 
@@ -17,6 +18,8 @@ app.use( expressValidator());
 
 app.engine('.hbs', exphbs({extname: '.hbs'}));
 app.set('view engine', '.hbs');
+
+app.use(methodOverride('_method'))
 
 app.use(cookieParser())
 require('./controllers/plants.js')(app);
