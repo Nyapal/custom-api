@@ -3,5 +3,8 @@
     <p class="lead">{{plant.title}}</p>
     <p>{{plant.summary}}</p>
     <p><a href="/plants/{{plant._id}}/edit">Edit</a></p>
+    <p><form method="POST" action="/plants/{{plant._id}}?_method=DELETE">
+    <button type="submit">Delete</button>
+    </form></p>
   </div>
 </div>

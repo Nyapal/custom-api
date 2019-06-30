@@ -42,7 +42,7 @@ module.exports = app => {
     Plant.findById(req.params.id, function(err, plant) {
       res.render('plants-edit', {plant: plant});
     })
-  })
+  });
 
   // UPDATE
   app.put('/plants/:id', (req, res) => {
@@ -53,5 +53,15 @@ module.exports = app => {
       .catch(err => {
         console.log(err.message)
       })
-  })
+  });
+
+  // DELETE
+  app.delete('/plants/:id', function (req, res) {
+    console.log("DELETE plant")
+    Plant.findByIdAndRemove(req.params.id).then((plant) => {
+      res.redirect('/');
+    }).catch((err) => {
+      console.log(err.message);
+    })
+  });
 }
