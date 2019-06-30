@@ -35,9 +35,12 @@ module.exports = app => {
       .catch(err => {
         console.log(err.message)
       })
+  });
+
+  // EDIT
+  app.get('/plants/:id/edit', (req, res) => {
+    Plant.findById(req.params.id, function(err, review) {
+      res.render('plants-edit', {plant: plant});
+    })
   })
-
-
-
-
 }
